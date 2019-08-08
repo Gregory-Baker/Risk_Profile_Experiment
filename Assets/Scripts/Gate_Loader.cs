@@ -8,8 +8,7 @@ using UnityEngine.AI;
 public class Gate_Loader : MonoBehaviour
 {
     [SerializeField] GameObject[] Gates;
-    [SerializeField] GameObject[] PositiveGatePrefabs;
-    [SerializeField] GameObject[] NegativeGatePrefabs;
+    [SerializeField] GameObject[] GatePrefabs;
 
     public NavMeshSurface surface;
 
@@ -48,42 +47,26 @@ public class Gate_Loader : MonoBehaviour
         if (!isGatesInstantiated)
         {
             int posGates = 0;
-            int negGates = 0;
 
             for (int i = 0; i < GateOrder.Length; i++)
             {
-                if (GateOrder[i] % 2 == 0) //if even load a positive gate
+                if (Rotations[i] == 0)
                 {
-                    if (Rotations[i] == 0)
-                    {
-                        gate = Instantiate(PositiveGatePrefabs[posGates], Gates[i].transform.position, Quaternion.identity);
-                        gate.transform.parent = transform;
-                    }
-                    else
-                    {
-                        gate = Instantiate(PositiveGatePrefabs[posGates], Gates[i].transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
-                        gate.transform.parent = transform;
-                    }
-
-                    posGates++;
+                    gate = Instantiate(GatePrefabs[posGates], Gates[GateOrder[i]].transform.position, Quaternion.identity);
+                    gate.transform.parent = transform;
                 }
-                else //if odd
+                else
                 {
-                    if (Rotations[i] == 0)
-                    {
-                        gate = Instantiate(NegativeGatePrefabs[negGates], Gates[i].transform.position, Quaternion.identity);
-                        gate.transform.parent = transform;
-                    }
-                    else
-                    {
-                        gate = Instantiate(NegativeGatePrefabs[negGates], Gates[i].transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
-                        gate.transform.parent = transform;
-                    }
+                    gate = Instantiate(GatePrefabs[posGates], Gates[GateOrder[i]].transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
+                    gate.transform.parent = transform;
+                }
 
-                    negGates++;
+                posGates++;
+                if (posGates == GatePrefabs.Length)
+                {
+                    posGates = 0;
                 }
             }
-
             
         }
         isGatesInstantiated = true;
