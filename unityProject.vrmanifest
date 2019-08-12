@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.risk_profile_experiment.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\g8-baker\\Documents\\GitHub\\Risk_Profile_Experiment\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Risk_Profile_Experiment [Testing]"
+        }
+      }
+    }
+  ]
+}
