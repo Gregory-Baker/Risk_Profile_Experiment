@@ -112,9 +112,12 @@ namespace Valve.VR.InteractionSystem
 
 		SteamVR_Events.Action chaperoneInfoInitializedAction;
 
-		// Events
+        [Header("Teleoport Objects")]
+        public GameObject teleportObject;
 
-		public static SteamVR_Events.Event< float > ChangeScene = new SteamVR_Events.Event< float >();
+        // Events
+
+        public static SteamVR_Events.Event< float > ChangeScene = new SteamVR_Events.Event< float >();
 		public static SteamVR_Events.Action< float > ChangeSceneAction( UnityAction< float > action ) { return new SteamVR_Events.Action< float >( ChangeScene, action ); }
 
 		public static SteamVR_Events.Event< TeleportMarkerBase > Player = new SteamVR_Events.Event< TeleportMarkerBase >();
@@ -889,9 +892,17 @@ namespace Valve.VR.InteractionSystem
 
 			if ( teleportingToMarker.ShouldMovePlayer() )
 			{
-				Vector3 playerFeetOffset = player.trackingOriginTransform.position - player.feetPositionGuess;
-				player.trackingOriginTransform.position = teleportPosition + playerFeetOffset;
-			}
+                if (teleportObject == null)
+                {
+                    Vector3 playerFeetOffset = player.trackingOriginTransform.position - player.feetPositionGuess;
+				    player.trackingOriginTransform.position = teleportPosition + playerFeetOffset;
+                }
+                else
+                {
+                    teleportPosition.y = 0.01f;
+                    teleportObject.transform.position = teleportPosition;
+                }
+        }
 			else
 			{
 				teleportingToMarker.TeleportPlayer( pointedAtPosition );
