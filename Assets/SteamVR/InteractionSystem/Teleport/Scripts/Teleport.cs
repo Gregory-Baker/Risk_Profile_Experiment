@@ -114,6 +114,7 @@ namespace Valve.VR.InteractionSystem
 
         [Header("Teleoport Objects")]
         public GameObject teleportObject;
+        public float verticalOffset = 0f;
 
         // Events
 
@@ -899,7 +900,7 @@ namespace Valve.VR.InteractionSystem
                 }
                 else
                 {
-                    teleportPosition.y = 0.01f;
+                    teleportPosition.y = verticalOffset;
                     teleportObject.transform.position = teleportPosition;
                 }
         }
