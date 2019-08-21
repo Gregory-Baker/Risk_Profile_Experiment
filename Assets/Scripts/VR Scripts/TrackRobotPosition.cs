@@ -19,16 +19,21 @@ public class TrackRobotPosition : MonoBehaviour
 
     Vector3 playerTranslation;
 
+    [SerializeField] float distanceTravelled = 0f;
+
     float currentPlayerAngle;
     float currentRobotAngle;
     float previousRobotAngle;
     float headRotationAngle;
+
+    Timer timer;
 
     // Start is called before the first frame update
     void Start()
     {
         previousRobotPosition = robot.transform.position;
         previousRobotAngle = robot.transform.eulerAngles.y;
+        timer = GetComponentInChildren<Timer>();
         //if (egocentric)
         //{
         //    SetTeleportActive(false);
@@ -72,7 +77,12 @@ public class TrackRobotPosition : MonoBehaviour
     {
         Vector3 heading = robot.transform.position - transform.position;
         heading.y = 0;
+        if (timer != null && !timer.trialFinished && heading.magnitude > 0.002)
+        {
+            timer.timerOn = true;
+        }
         transform.Translate(heading, Space.World);
+        distanceTravelled += heading.magnitude;
     }
 
     private void TurnPlayerWithRobot()

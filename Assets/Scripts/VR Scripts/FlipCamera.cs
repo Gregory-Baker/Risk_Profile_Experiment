@@ -14,6 +14,8 @@ namespace Valve.VR.InteractionSystem
 
         public float rotationDegrees;
 
+        public MeshRenderer uiIndicator;
+
         private void OnEnable()
         {
             if (hand == null)
@@ -39,6 +41,11 @@ namespace Valve.VR.InteractionSystem
             if (newValue)
             {
                 RotateCamera(rotationDegrees);
+
+                if (uiIndicator != null)
+                {
+                    uiIndicator.enabled = !uiIndicator.enabled;
+                }
             }
         }
 

@@ -9,7 +9,6 @@ namespace Valve.VR.InteractionSystem
 {
     public class DirectControl : MonoBehaviour
     {
-        public SteamVR_Action_Boolean toggleControlMethod;
         public SteamVR_Action_Boolean forwardAction;
         public SteamVR_Action_Boolean reverseAction;
         public SteamVR_Action_Boolean leftAction;
@@ -17,18 +16,12 @@ namespace Valve.VR.InteractionSystem
 
         public Hand hand;
 
-        public Teleport targetSelector;
-        public GameObject[] targetDisks;
-
         public float linearSpeed = 0.5f;
         public float angularSpeed = 1f;
 
-        float communicationDelay;
+        public float communicationDelay = 0f;
 
-        private bool directControlOn = false;
-        public bool uiTextOn;
-        public GameObject directControlText;
-        public GameObject indirectControlText;
+        public Transform baseLink;
 
         void OnEnable()
         {
@@ -41,77 +34,19 @@ namespace Valve.VR.InteractionSystem
                 return;
             }
 
-            toggleControlMethod.AddOnChangeListener(OnConfirmActionChange, hand.handType);
-
-            directControlText.SetActive(false);
-            indirectControlText.SetActive(false);
-            SetUIText();
-
-            communicationDelay = GetComponent<Status>().communicationDelay;
         }
 
         private void OnDisable()
         {
-            if (toggleControlMethod != null)
-                toggleControlMethod.RemoveOnChangeListener(OnConfirmActionChange, hand.handType);
+                
         }
 
         private void OnConfirmActionChange(SteamVR_Action_Boolean actionIn, SteamVR_Input_Sources inputSource, bool newValue)
         {
             if (newValue)
             {
-                directControlOn = !directControlOn;
-                if (directControlOn)
-                {
-                    targetSelector.GetComponent<Teleport>().enabled = false;
-                    EnableNavAgent(false);
-                    EnableTargetDisks(false);
-                    SetUIText();
-                }
-                else
-                {
-                    targetSelector.GetComponent<Teleport>().enabled = true;
-                    EnableNavAgent(true);
-                    EnableTargetDisks(true);
-                    SetUIText();
-                }
+                print("action identified");
             }
-        }
-
-        private void SetUIText()
-        {
-            if (uiTextOn)
-            {
-                if (directControlOn)
-                {
-                    directControlText.SetActive(true);
-                    indirectControlText.SetActive(false);
-                }
-                else
-                {
-                    directControlText.SetActive(false);
-                    indirectControlText.SetActive(true);
-                }
-            }
-        }
-
-        private void EnableTargetDisks(bool on)
-        {
-            if (targetDisks != null)
-            {
-                foreach (GameObject targetDisk in targetDisks)
-                {
-                    targetDisk.transform.position = transform.position;
-                    targetDisk.SetActive(on);
-                }
-            }
-        }
-
-        private void EnableNavAgent(bool on)
-        {
-            GetComponent<NavMeshAgent>().enabled = on;
-            GetComponent<SampleAgentScript>().enabled = on;
-            GetComponent<LineRenderer>().enabled = on;
         }
 
         private bool IsActionButtonDown(Hand hand, SteamVR_Action_Boolean action)
@@ -121,32 +56,34 @@ namespace Valve.VR.InteractionSystem
 
         void Update()
         {
-            if (directControlOn)
+            if (IsActionButtonDown(hand, forwardAction))
             {
-                if (IsActionButtonDown(hand, forwardAction))
-                {
-                    //transform.Translate(Vector3.forward * linearSpeed * Time.deltaTime);
-                    StartCoroutine(MoveRobotCoroutine(linearSpeed, communicationDelay));
-                }
-
-                if (IsActionButtonDown(hand, reverseAction))
-                {
-                    //transform.Translate(Vector3.forward * -linearSpeed * Time.deltaTime);
-                    StartCoroutine(MoveRobotCoroutine(-linearSpeed, communicationDelay));
-                }
-
-                if (IsActionButtonDown(hand, rightAction))
-                {
-                    //transform.Rotate(transform.up * angularSpeed * Time.deltaTime);
-                    StartCoroutine(TurnRobotCoroutine(angularSpeed, communicationDelay));
-                }
-
-                if (IsActionButtonDown(hand, leftAction))
-                {
-                    //transform.Rotate(transform.up * -angularSpeed * Time.deltaTime);
-                    StartCoroutine(TurnRobotCoroutine(-angularSpeed, communicationDelay));
-                }
+                StartCoroutine(MoveRobotCoroutine(linearSpeed, communicationDelay));
             }
+
+            if (IsActionButtonDown(hand, reverseAction))
+            {
+                StartCoroutine(MoveRobotCoroutine(-linearSpeed, communicationDelay));
+            }
+
+            if (IsActionButtonDown(hand, rightAction))
+            {
+                StartCoroutine(TurnRobotCoroutine(angularSpeed, communicationDelay));
+            }
+
+            if (IsActionButtonDown(hand, leftAction))
+            {
+                StartCoroutine(TurnRobotCoroutine(-angularSpeed, communicationDelay));
+            }
+
+            //if (baseLink != null)
+            //{
+            //    Vector3 separation = baseLink.position - transform.position;
+            //    separation.y = 0;
+            //    //print(separation.x);
+            //    //print(separation.z);
+            //    transform.Translate(separation, Space.World);
+            //}
         }
 
         IEnumerator MoveRobotCoroutine(float linearVelocity, float delayTime)

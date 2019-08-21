@@ -41,6 +41,10 @@
       "requirement": "optional"
     },
     {
+      "name": "/actions/default/in/ShowRearView",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -72,6 +76,22 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/DirectControl/in/MoveForward",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/DirectControl/in/MoveBackward",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/DirectControl/in/TurnLeft",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/DirectControl/in/TurnRight",
+      "type": "boolean"
     }
   ],
   "action_sets": [
@@ -90,6 +110,10 @@
     {
       "name": "/actions/mixedreality",
       "usage": "single"
+    },
+    {
+      "name": "/actions/DirectControl",
+      "usage": "leftright"
     }
   ],
   "default_bindings": [
@@ -142,7 +166,12 @@
       "/actions/default/in/SkeletonRightHand": "Skeleton (Right)",
       "/actions/default/in/Teleport": "Teleport",
       "/actions/default/out/Haptic": "Haptic",
-      "/actions/platformer/in/Jump": "Jump"
+      "/actions/platformer/in/Jump": "Jump",
+      "/actions/DirectControl/in/MoveForward": "Move Forward",
+      "/actions/DirectControl/in/MoveBackward": "Move Backwards",
+      "/actions/DirectControl/in/TurnLeft": "Turn Left",
+      "/actions/DirectControl/in/TurnRight": "Turn Right",
+      "/actions/default/in/ShowRearView": "Show rear view"
     }
   ]
 }
