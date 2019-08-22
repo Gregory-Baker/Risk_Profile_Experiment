@@ -21,7 +21,7 @@ namespace Valve.VR.InteractionSystem
 
         public float communicationDelay = 0f;
 
-        public Transform baseLink;
+        CollisionAvoidance collisionSensor;
 
         void OnEnable()
         {
@@ -34,6 +34,7 @@ namespace Valve.VR.InteractionSystem
                 return;
             }
 
+            collisionSensor = GetComponent<CollisionAvoidance>();
         }
 
         private void OnDisable()
@@ -58,7 +59,10 @@ namespace Valve.VR.InteractionSystem
         {
             if (IsActionButtonDown(hand, forwardAction))
             {
-                StartCoroutine(MoveRobotCoroutine(linearSpeed, communicationDelay));
+                if (!collisionSensor.inCollision)
+                {
+                    StartCoroutine(MoveRobotCoroutine(linearSpeed, communicationDelay));
+                }
             }
 
             if (IsActionButtonDown(hand, reverseAction))
@@ -76,14 +80,6 @@ namespace Valve.VR.InteractionSystem
                 StartCoroutine(TurnRobotCoroutine(-angularSpeed, communicationDelay));
             }
 
-            //if (baseLink != null)
-            //{
-            //    Vector3 separation = baseLink.position - transform.position;
-            //    separation.y = 0;
-            //    //print(separation.x);
-            //    //print(separation.z);
-            //    transform.Translate(separation, Space.World);
-            //}
         }
 
         IEnumerator MoveRobotCoroutine(float linearVelocity, float delayTime)
