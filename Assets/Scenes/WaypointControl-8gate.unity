@@ -11032,6 +11032,7 @@ MonoBehaviour:
   trackRotation: 1
   teleportPlayerObject: {fileID: 0}
   maxTurnAnglePerSecond: 10
+  camZOffset: 0
   distanceTravelled: 0
 --- !u!1001 &927152551
 PrefabInstance:
@@ -11248,6 +11249,14 @@ PrefabInstance:
       propertyPath: verticalOffset
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: areaHighlightedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: efbca316de25d2043a584b5afa39191c, type: 2}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: areaVisibleMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: efbca316de25d2043a584b5afa39191c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
 --- !u!1001 &936730356

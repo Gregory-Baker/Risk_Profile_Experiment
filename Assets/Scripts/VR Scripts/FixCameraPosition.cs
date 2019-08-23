@@ -19,7 +19,7 @@ public class FixCameraPosition : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 camPos = robot.transform.position - vrCamera.transform.position;
-        vrCamera.transform.Translate(camPos);
+        Vector3 camPos = robot.transform.position + Vector3.up*verticalHeight - vrCamera.transform.position;
+        transform.Translate(camPos, Space.World);
     }
 }

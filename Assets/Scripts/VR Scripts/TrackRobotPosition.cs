@@ -14,6 +14,8 @@ public class TrackRobotPosition : MonoBehaviour
 
     public float maxTurnAnglePerSecond = 10f;
 
+    public float camZOffset;
+
     Vector3 previousRobotPosition;
     Vector3 heading;
 
@@ -75,7 +77,7 @@ public class TrackRobotPosition : MonoBehaviour
 
     public void MovePlayerToRobotPos()
     {
-        Vector3 heading = robot.transform.position - transform.position;
+        Vector3 heading = robot.transform.position - transform.position + camZOffset * robot.transform.forward;
         heading.y = 0;
         if (timer != null && !timer.trialFinished && heading.magnitude > 0.002)
         {

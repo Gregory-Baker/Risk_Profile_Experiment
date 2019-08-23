@@ -8,6 +8,7 @@ public class CollisionAvoidance : MonoBehaviour
     public bool stay = true;
     public bool exit = true;
     [SerializeField] public bool inCollision = false;
+    public MeshRenderer uiPrompt;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,16 @@ public class CollisionAvoidance : MonoBehaviour
         if (enter)
         {
             inCollision = true;
+            if (uiPrompt != null)
+            {
+                uiPrompt.enabled = true;
+            }
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -34,6 +44,10 @@ public class CollisionAvoidance : MonoBehaviour
         if (exit)
         {
             inCollision = false;
+            if (uiPrompt != null)
+            {
+                uiPrompt.enabled = false;
+            }
         }
     }
 }
