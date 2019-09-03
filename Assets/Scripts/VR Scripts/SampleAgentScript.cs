@@ -12,9 +12,14 @@ public class SampleAgentScript : MonoBehaviour
     public Transform endReticle;
     float pathLength = 0f;
     bool pathLengthRqd = true;
+    public NavMeshSurface surface;
 
-    void Start()
+    void Awake()
     {
+        if (surface != null)
+        {
+            surface.BuildNavMesh();
+        }
         agent = GetComponent<NavMeshAgent>();
         line = this.GetComponent<LineRenderer>();
         agent.SetDestination(endReticle.position);
