@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class TrackRobotPosition : MonoBehaviour
 {
@@ -79,7 +80,7 @@ public class TrackRobotPosition : MonoBehaviour
     {
         Vector3 heading = robot.transform.position - transform.position + camZOffset * robot.transform.forward;
         heading.y = 0;
-        if (timer != null && !timer.trialFinished && heading.magnitude > 0.002)
+        if (timer != null && timer.startedMoving && !timer.trialFinished && heading.magnitude > 0.002)
         {
             timer.timerOn = true;
         }

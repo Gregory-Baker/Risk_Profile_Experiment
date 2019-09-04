@@ -2200,7 +2200,7 @@ PrefabInstance:
     - target: {fileID: 4467308961343279084, guid: 6a571e2c48ef2a6478941190f6e1d56c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a571e2c48ef2a6478941190f6e1d56c, type: 3}
@@ -20960,9 +20960,17 @@ MonoBehaviour:
   trialFinished: 0
   timer: 0
   endDistance: 0.5
-  robot: {fileID: 0}
-  target: {fileID: 0}
+  robot: {fileID: 1960858136}
+  target: {fileID: 1879687927}
   endTrialText: {fileID: 169591182}
+  hand: {fileID: 1878915226}
+  moveActionDC:
+    actionPath: /actions/DirectControl/in/MoveForward
+    needsReinit: 0
+  moveActionIC:
+    actionPath: /actions/default/in/Teleport
+    needsReinit: 0
+  startedMoving: 0
 --- !u!102 &1529687823
 TextMesh:
   serializedVersion: 3
@@ -27011,10 +27019,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 0.3
-  m_Speed: 0.6
+  m_Speed: 0.5
   m_Acceleration: 2
   avoidancePriority: 50
-  m_AngularSpeed: 15
+  m_AngularSpeed: 10
   m_StoppingDistance: 0.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -27291,7 +27299,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967822089}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -27305,7 +27313,7 @@ Transform:
   - {fileID: 441706527}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1969276683
 PrefabInstance:
   m_ObjectHideFlags: 0
