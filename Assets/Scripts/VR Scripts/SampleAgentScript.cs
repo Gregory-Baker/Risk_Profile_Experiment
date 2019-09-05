@@ -38,7 +38,7 @@ public class SampleAgentScript : MonoBehaviour
         }
         else
         {
-            //agent.SetDestination(target.position);
+            agent.SetDestination(target.position);
             OnDrawGizmosSelected();
         }
     }

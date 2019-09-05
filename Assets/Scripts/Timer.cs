@@ -52,7 +52,7 @@ namespace Valve.VR.InteractionSystem
                 endTrialText.enabled = true;
             }
 
-            if (timerOn && startedMoving)
+            if (timerOn)
             {
                 timer += Time.deltaTime;
                 float minutes = Mathf.Floor(timer / 60);
