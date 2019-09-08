@@ -74,7 +74,7 @@ namespace Valve.VR.InteractionSystem
 
 		private bool visible = false;
 
-		private TeleportMarkerBase[] teleportMarkers;
+		[SerializeField] private TeleportMarkerBase[] teleportMarkers;
 		private TeleportMarkerBase pointedAtTeleportMarker;
 		private TeleportMarkerBase teleportingToMarker;
 		private Vector3 pointedAtPosition;
@@ -115,6 +115,8 @@ namespace Valve.VR.InteractionSystem
         [Header("Teleoport Objects")]
         public GameObject teleportObject;
         public float verticalOffset = 0f;
+
+        public bool showHint = false;
 
         // Events
 
@@ -188,7 +190,11 @@ namespace Valve.VR.InteractionSystem
 
 			CheckForSpawnPoint();
 
-			Invoke( "ShowTeleportHint", 5.0f );
+            if (showHint == true)
+            {
+                Invoke("ShowTeleportHint", 5.0f);
+            }
+			
 		}
 
 

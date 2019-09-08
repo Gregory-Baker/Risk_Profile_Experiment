@@ -41,7 +41,7 @@
       "requirement": "optional"
     },
     {
-      "name": "/actions/default/in/ShowRearView",
+      "name": "/actions/default/in/ChangeControlMethod",
       "type": "boolean"
     },
     {
@@ -178,8 +178,7 @@
       "/actions/DirectControl/in/MoveForward": "Move Forward",
       "/actions/DirectControl/in/MoveBackward": "Move Backwards",
       "/actions/DirectControl/in/TurnLeft": "Turn Left",
-      "/actions/DirectControl/in/TurnRight": "Turn Right",
-      "/actions/default/in/ShowRearView": "Show rear view"
+      "/actions/DirectControl/in/TurnRight": "Turn Right"
     }
   ]
 }

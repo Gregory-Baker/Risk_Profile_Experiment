@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class CollisionAvoidance : MonoBehaviour
 {
-    public bool enter = true;
-    public bool stay = true;
-    public bool exit = true;
+    bool enter = true;
+    bool stay = true;
+    bool exit = true;
     [SerializeField] public bool inCollision = false;
     public MeshRenderer uiPrompt;
+    public Collider collisionCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        collisionCollider.enabled = true;
     }
 
     // Update is called once per frame

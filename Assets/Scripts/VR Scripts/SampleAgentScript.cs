@@ -11,7 +11,8 @@ public class SampleAgentScript : MonoBehaviour
     LineRenderer line;
     public Transform endReticle;
     float pathLength = 0f;
-    bool pathLengthRqd = true;
+    public bool pathLengthRqd = false;
+    public NavMeshAgent navmeshAgent;
     public NavMeshSurface surface;
 
     void Awake()
@@ -22,7 +23,15 @@ public class SampleAgentScript : MonoBehaviour
         }
         agent = GetComponent<NavMeshAgent>();
         line = this.GetComponent<LineRenderer>();
-        agent.SetDestination(endReticle.position);
+        if (pathLengthRqd)
+        {
+            agent.SetDestination(endReticle.position);
+        }
+    }
+
+    void OnEnable()
+    {
+        navmeshAgent.enabled = true;
     }
 
     void Update()
@@ -83,5 +92,10 @@ public class SampleAgentScript : MonoBehaviour
         float pathLength = agent.remainingDistance;
         agent.SetDestination(agent.GetComponentInParent<Transform>().position);
         return pathLength;
+    }
+
+    private void OnDisable()
+    {
+        navmeshAgent.enabled = false;
     }
 }

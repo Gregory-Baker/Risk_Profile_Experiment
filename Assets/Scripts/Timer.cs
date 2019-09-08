@@ -26,7 +26,10 @@ namespace Valve.VR.InteractionSystem
         void Start()
         {
             timerText = GetComponent<TextMesh>();
+        }
 
+        void OnEnable()
+        {
             moveActionDC.AddOnChangeListener(OnConfirmActionChange, hand.handType);
             moveActionIC.AddOnChangeListener(OnConfirmActionChange, hand.handType);
         }
@@ -37,8 +40,7 @@ namespace Valve.VR.InteractionSystem
             {
                 startedMoving = true;
             }
-            moveActionDC.RemoveOnChangeListener(OnConfirmActionChange, hand.handType);
-            moveActionIC.RemoveOnChangeListener(OnConfirmActionChange, hand.handType);
+
         }
 
 
@@ -69,6 +71,12 @@ namespace Valve.VR.InteractionSystem
             float euclidDist = Mathf.Sqrt(Mathf.Pow(toTargetVec.x, 2) + Mathf.Pow(toTargetVec.z, 2));
 
             return euclidDist;
+        }
+
+        private void OnDisable()
+        {
+            moveActionDC.RemoveOnChangeListener(OnConfirmActionChange, hand.handType);
+            moveActionIC.RemoveOnChangeListener(OnConfirmActionChange, hand.handType);
         }
     }
 }

@@ -19,9 +19,10 @@ namespace Valve.VR.InteractionSystem
         public float linearSpeed = 0.5f;
         public float angularSpeed = 1f;
 
-        public float communicationDelay = 0f;
+        public Status robotStatus;
+        public float communicationDelay;
 
-        CollisionAvoidance collisionSensor;
+        public CollisionAvoidance collisionSensor;
 
         void OnEnable()
         {
@@ -34,12 +35,14 @@ namespace Valve.VR.InteractionSystem
                 return;
             }
 
-            collisionSensor = GetComponent<CollisionAvoidance>();
+            collisionSensor.enabled = true;
+
+            communicationDelay = robotStatus.communicationDelay;
         }
 
         private void OnDisable()
         {
-                
+            collisionSensor.enabled = false;
         }
 
         private void OnConfirmActionChange(SteamVR_Action_Boolean actionIn, SteamVR_Input_Sources inputSource, bool newValue)

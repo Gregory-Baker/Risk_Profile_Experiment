@@ -35,7 +35,7 @@ namespace Valve.VR
         
         private static SteamVR_Action_Boolean p_default_HeadsetOnHead;
         
-        private static SteamVR_Action_Boolean p_default_ShowRearView;
+        private static SteamVR_Action_Boolean p_default_ChangeControlMethod;
         
         private static SteamVR_Action_Boolean p_default_LeftArrow;
         
@@ -137,11 +137,11 @@ namespace Valve.VR
             }
         }
         
-        public static SteamVR_Action_Boolean default_ShowRearView
+        public static SteamVR_Action_Boolean default_ChangeControlMethod
         {
             get
             {
-                return SteamVR_Actions.p_default_ShowRearView.GetCopy<SteamVR_Action_Boolean>();
+                return SteamVR_Actions.p_default_ChangeControlMethod.GetCopy<SteamVR_Action_Boolean>();
             }
         }
         
@@ -269,7 +269,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_SkeletonRightHand,
                     SteamVR_Actions.default_Squeeze,
                     SteamVR_Actions.default_HeadsetOnHead,
-                    SteamVR_Actions.default_ShowRearView,
+                    SteamVR_Actions.default_ChangeControlMethod,
                     SteamVR_Actions.default_LeftArrow,
                     SteamVR_Actions.default_RightArrow,
                     SteamVR_Actions.default_Haptic,
@@ -294,7 +294,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_SkeletonRightHand,
                     SteamVR_Actions.default_Squeeze,
                     SteamVR_Actions.default_HeadsetOnHead,
-                    SteamVR_Actions.default_ShowRearView,
+                    SteamVR_Actions.default_ChangeControlMethod,
                     SteamVR_Actions.default_LeftArrow,
                     SteamVR_Actions.default_RightArrow,
                     SteamVR_Actions.platformer_Move,
@@ -321,7 +321,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_GrabPinch,
                     SteamVR_Actions.default_GrabGrip,
                     SteamVR_Actions.default_HeadsetOnHead,
-                    SteamVR_Actions.default_ShowRearView,
+                    SteamVR_Actions.default_ChangeControlMethod,
                     SteamVR_Actions.default_LeftArrow,
                     SteamVR_Actions.default_RightArrow,
                     SteamVR_Actions.platformer_Jump,
@@ -348,7 +348,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_GrabGrip,
                     SteamVR_Actions.default_Squeeze,
                     SteamVR_Actions.default_HeadsetOnHead,
-                    SteamVR_Actions.default_ShowRearView,
+                    SteamVR_Actions.default_ChangeControlMethod,
                     SteamVR_Actions.default_LeftArrow,
                     SteamVR_Actions.default_RightArrow,
                     SteamVR_Actions.platformer_Move,
@@ -374,7 +374,7 @@ namespace Valve.VR
             SteamVR_Actions.p_default_SkeletonRightHand = ((SteamVR_Action_Skeleton)(SteamVR_Action.Create<SteamVR_Action_Skeleton>("/actions/default/in/SkeletonRightHand")));
             SteamVR_Actions.p_default_Squeeze = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/default/in/Squeeze")));
             SteamVR_Actions.p_default_HeadsetOnHead = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/HeadsetOnHead")));
-            SteamVR_Actions.p_default_ShowRearView = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/ShowRearView")));
+            SteamVR_Actions.p_default_ChangeControlMethod = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/ChangeControlMethod")));
             SteamVR_Actions.p_default_LeftArrow = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/LeftArrow")));
             SteamVR_Actions.p_default_RightArrow = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/RightArrow")));
             SteamVR_Actions.p_default_Haptic = ((SteamVR_Action_Vibration)(SteamVR_Action.Create<SteamVR_Action_Vibration>("/actions/default/out/Haptic")));

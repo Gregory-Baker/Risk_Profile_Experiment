@@ -89,11 +89,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean ShowRearView
+        public virtual SteamVR_Action_Boolean ChangeControlMethod
         {
             get
             {
-                return SteamVR_Actions.default_ShowRearView;
+                return SteamVR_Actions.default_ChangeControlMethod;
             }
         }
         
