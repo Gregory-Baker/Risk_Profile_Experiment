@@ -14,26 +14,20 @@ public class Status : MonoBehaviour
     public enum EnvironmentOrientation { A, B, C, D}
     public EnvironmentOrientation environment;
 
-    public GameObject gates;
+    [Header("Left/Right Handed")]
+    public bool leftHanded = false;
+    public Hand rightHand;
+    public Hand leftHand;
+    public GameObject rightHandModel;
+    public GameObject leftHandModel;
 
     void Start()
     {
-
-        if (environment == EnvironmentOrientation.B)
+        if (leftHanded)
         {
-            gates.transform.Rotate(Vector3.up, 90f);
+            rightHand.renderModelPrefab = leftHandModel;
+            leftHand.renderModelPrefab = rightHandModel;
         }
-        else if (environment == EnvironmentOrientation.C)
-        {
-            gates.transform.localScale = new Vector3(1, 1, -1);
-        }
-        else if (environment == EnvironmentOrientation.D)
-        {
-            gates.transform.localScale = new Vector3(1, 1, -1);
-            gates.transform.Rotate(Vector3.up, 180f);
-        }
-
-        gates.isStatic = true;
     }
 
     // Update is called once per frame

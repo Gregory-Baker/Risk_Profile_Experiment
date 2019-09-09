@@ -46,7 +46,7 @@ public class ChangeControlMethod : MonoBehaviour
 
     private void OnConfirmActionChange(SteamVR_Action_Boolean changeControlAction, SteamVR_Input_Sources inputSource, bool newValue)
     {
-        if (newValue)
+        if (newValue && robotStatus.changeControlPermitted)
         {
             robotStatus.directControl = !robotStatus.directControl;
             SwitchControl();
@@ -58,7 +58,7 @@ public class ChangeControlMethod : MonoBehaviour
         if (robotStatus.directControl)
         {
             print("Direct Control Activated");
-            dcActionSet.Activate(forSources, 0, false);
+            dcActionSet.Activate(forSources, 1, false);
             directControlScript.enabled = true;
             navMeshAgent.enabled = false;
             teleportObject.SetActive(false);
