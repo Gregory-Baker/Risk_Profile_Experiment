@@ -8,12 +8,10 @@ namespace Valve.VR.InteractionSystem
     public class StopRobot : MonoBehaviour
     {
         public SteamVR_Action_Boolean confirmTargetAction;
-
         public Hand hand;
-
         public GameObject[] objectsToMove;
-
         public GameObject robot;
+        public Status status;
 
         public float verticalOffset = 0f;
 
@@ -32,7 +30,7 @@ namespace Valve.VR.InteractionSystem
 
             confirmTargetAction.AddOnChangeListener(OnConfirmActionChange, hand.handType);
 
-            communicationDelay = robot.GetComponent<Status>().communicationDelay;
+            communicationDelay = status.communicationDelay;
         }
 
         private void OnDisable()

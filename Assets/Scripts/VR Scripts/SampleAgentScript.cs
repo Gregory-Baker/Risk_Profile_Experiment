@@ -96,6 +96,7 @@ public class SampleAgentScript : MonoBehaviour
 
     private void OnDisable()
     {
-        navmeshAgent.enabled = false;
+        //navmeshAgent.enabled = false;
     }
+
 }

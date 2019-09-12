@@ -5,11 +5,12 @@ using UnityEngine;
 public class CollisionAvoidance : MonoBehaviour
 {
     bool enter = true;
-    bool stay = true;
     bool exit = true;
-    [SerializeField] public bool inCollision = false;
+    public bool inCollision = false;
     public MeshRenderer uiPrompt;
     public Collider collisionCollider;
+    public Status status;
+    public int collisions = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -37,13 +38,10 @@ public class CollisionAvoidance : MonoBehaviour
             {
                 uiPrompt.enabled = true;
             }
+            collisions += 1;
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-
-    }
 
     private void OnTriggerExit(Collider other)
     {
@@ -54,6 +52,24 @@ public class CollisionAvoidance : MonoBehaviour
             {
                 uiPrompt.enabled = false;
             }
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        LogCollisions();
+    }
+
+    private void LogCollisions()
+    {
+        string logErrorFile = status.folderGlobalPath + "/" + status.trialName + "_CollisionAvoidanceTriggered";
+        string fileType = ".txt";
+        string path = logErrorFile + fileType;
+        path = status.FindUniquePathName(logErrorFile, fileType);
+
+        using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
+        {
+            file.WriteLine(collisions);
         }
     }
 }

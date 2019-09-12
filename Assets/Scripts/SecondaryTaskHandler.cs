@@ -1,9 +1,11 @@
 ﻿using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEditor;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
@@ -23,10 +25,22 @@ public class SecondaryTaskHandler : MonoBehaviour
     int arrowLR; //  0 for L arrow, 1 for R arrow
     float startTime;
     float responseTime;
+    public Status status;
+    string folder;
+    string logFile;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        folder = status.folderGlobalPath;
+        string filename = status.trialName + "_ResponseTimes";
+        string fileType = ".txt";
+        string path = folder + "/" + filename + fileType;
+
+        logFile = status.FindUniquePathName(folder + "/" + filename, fileType);
+
+
         AssignVRInputActions();
     }
 
@@ -116,7 +130,11 @@ public class SecondaryTaskHandler : MonoBehaviour
     private void ArrowDeactivate()
     {
         responseTime = Time.time - startTime;
-        print("Response Time: " + responseTime);
+        using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFile, true))
+        {
+            file.WriteLine(responseTime);
+        }
+
         activeArrow.enabled = false;
         activeArrow = null;
         StartCoroutine(ArrowActivation(timeDelay));
@@ -126,5 +144,23 @@ public class SecondaryTaskHandler : MonoBehaviour
     {
         a_leftArrow.RemoveOnChangeListener(OnLeftArrowActionChange, hand.handType);
         a_rightArrow.RemoveOnChangeListener(OnRightArrowActionChange, hand.handType);
+    }
+
+    private void OnApplicationQuit()
+    {
+        LogErrors();
+    }
+
+    private void LogErrors()
+    {
+        string logErrorFile = folder + "/" + status.trialName + "_ResponseErrors";
+        string fileType = ".txt";
+        string path = logErrorFile + fileType;
+        path = status.FindUniquePathName(logErrorFile, fileType);
+
+        using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
+        {
+            file.WriteLine(errors);
+        }
     }
 }

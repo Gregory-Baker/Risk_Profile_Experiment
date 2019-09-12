@@ -58,7 +58,7 @@ namespace Valve.VR.InteractionSystem
             return action.GetState(hand.handType);
         }
 
-        void Update()
+        void FixedUpdate()
         {
             if (IsActionButtonDown(hand, forwardAction))
             {
@@ -66,35 +66,60 @@ namespace Valve.VR.InteractionSystem
                 {
                     StartCoroutine(MoveRobotCoroutine(linearSpeed, communicationDelay));
                 }
+
+                if (IsActionButtonDown(hand, rightAction))
+                {
+                    StartCoroutine(TurnRobotCoroutine(angularSpeed, communicationDelay));
+                }
+
+                if (IsActionButtonDown(hand, leftAction))
+                {
+                    StartCoroutine(TurnRobotCoroutine(-angularSpeed, communicationDelay));
+                }
             }
 
-            if (IsActionButtonDown(hand, reverseAction))
+            else if (IsActionButtonDown(hand, reverseAction))
             {
                 StartCoroutine(MoveRobotCoroutine(-linearSpeed, communicationDelay));
+
+                if (IsActionButtonDown(hand, rightAction))
+                {
+                    StartCoroutine(TurnRobotCoroutine(-angularSpeed, communicationDelay));
+                }
+
+                if (IsActionButtonDown(hand, leftAction))
+                {
+                    StartCoroutine(TurnRobotCoroutine(angularSpeed, communicationDelay));
+                }
             }
 
-            if (IsActionButtonDown(hand, rightAction))
+            else
             {
-                StartCoroutine(TurnRobotCoroutine(angularSpeed, communicationDelay));
+                if (IsActionButtonDown(hand, rightAction))
+                {
+                    StartCoroutine(TurnRobotCoroutine(angularSpeed, communicationDelay));
+                }
+
+                if (IsActionButtonDown(hand, leftAction))
+                {
+                    StartCoroutine(TurnRobotCoroutine(-angularSpeed, communicationDelay));
+                }
             }
 
-            if (IsActionButtonDown(hand, leftAction))
-            {
-                StartCoroutine(TurnRobotCoroutine(-angularSpeed, communicationDelay));
-            }
+
 
         }
 
         IEnumerator MoveRobotCoroutine(float linearVelocity, float delayTime)
         {
             yield return new WaitForSeconds(delayTime);
-            transform.Translate(Vector3.forward * linearVelocity * Time.deltaTime);
+            transform.Translate(Vector3.forward * linearVelocity * Time.fixedDeltaTime);
         }
 
         IEnumerator TurnRobotCoroutine(float angularVelocity, float delayTime)
         {
             yield return new WaitForSeconds(delayTime);
-            transform.Rotate(transform.up * angularVelocity * Time.deltaTime);
+            transform.Rotate(transform.up * angularVelocity * Time.fixedDeltaTime);
         }
     }
 }

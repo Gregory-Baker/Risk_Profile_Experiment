@@ -12,7 +12,8 @@ public class ChangeControlMethod : MonoBehaviour
     public Hand hand;
     public SteamVR_Action_Boolean changeControlAction;
 
-    public SampleAgentScript navMeshAgent;
+    public NavMeshAgent navMeshAgent;
+    public SampleAgentScript sampleAgentScript;
     //public Teleport teleportScript;
     public GameObject teleportObject;
     public StopRobot stopRobot;
@@ -61,6 +62,7 @@ public class ChangeControlMethod : MonoBehaviour
             dcActionSet.Activate(forSources, 1, false);
             directControlScript.enabled = true;
             navMeshAgent.enabled = false;
+            sampleAgentScript.enabled = false;
             teleportObject.SetActive(false);
             stopRobot.enabled = false;
             lineRenderer.enabled = false;
@@ -73,9 +75,9 @@ public class ChangeControlMethod : MonoBehaviour
         {
             print("Indirect Control Activated");
             dcActionSet.Deactivate(forSources);
-            //icActionSet.Activate(forSources, 0, true);
             directControlScript.enabled = false;
             navMeshAgent.enabled = true;
+            sampleAgentScript.enabled = true;
             teleportObject.SetActive(true);
             stopRobot.enabled = true;
             lineRenderer.enabled = true;

@@ -3,80 +3,78 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Valve.VR.InteractionSystem;
+using Valve.VR;
 
 
-namespace Valve.VR.InteractionSystem
+public class Timer : MonoBehaviour
 {
-    public class Timer : MonoBehaviour
+    public bool timerOn = false;
+    public bool trialFinished = false;
+    [SerializeField] float timer = 0f;
+    TextMesh timerText;
+    public float endDistance = 1f;
+    public GameObject robot;
+    public GameObject target;
+    public MeshRenderer endTrialText;
+
+    public Hand hand;
+    public SteamVR_Action_Boolean moveActionDC;
+    public SteamVR_Action_Boolean moveActionIC;
+    public bool startedMoving = false;
+
+    void Start()
     {
-        public bool timerOn = false;
-        public bool trialFinished = false;
-        [SerializeField] float timer = 0f;
-        TextMesh timerText;
-        public float endDistance = 1f;
-        public GameObject robot;
-        public GameObject target;
-        public MeshRenderer endTrialText;
+        timerText = GetComponent<TextMesh>();
+    }
 
-        public Hand hand;
-        public SteamVR_Action_Boolean moveActionDC;
-        public SteamVR_Action_Boolean moveActionIC;
-        public bool startedMoving = false;
+    void OnEnable()
+    {
+        moveActionDC.AddOnChangeListener(OnConfirmActionChange, hand.handType);
+        moveActionIC.AddOnChangeListener(OnConfirmActionChange, hand.handType);
+    }
 
-        void Start()
+    private void OnConfirmActionChange(SteamVR_Action_Boolean actionIn, SteamVR_Input_Sources inputSource, bool newValue)
+    {
+        if (newValue && !startedMoving)
         {
-            timerText = GetComponent<TextMesh>();
+            startedMoving = true;
         }
 
-        void OnEnable()
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (calculateEuclidianDistance(robot.transform.position, target.transform.position) < endDistance)
         {
-            moveActionDC.AddOnChangeListener(OnConfirmActionChange, hand.handType);
-            moveActionIC.AddOnChangeListener(OnConfirmActionChange, hand.handType);
+            timerOn = false;
+            trialFinished = true;
+            endTrialText.enabled = true;
         }
 
-        private void OnConfirmActionChange(SteamVR_Action_Boolean actionIn, SteamVR_Input_Sources inputSource, bool newValue)
+        if (timerOn)
         {
-            if (newValue && !startedMoving)
-            {
-                startedMoving = true;
-            }
-
+            timer += Time.deltaTime;
+            float minutes = Mathf.Floor(timer / 60);
+            float seconds = timer % 60;
+            string text = string.Format("{0:0}:{1:00}", minutes, seconds);
+            timerText.text = text;
         }
+    }
 
+    private float calculateEuclidianDistance(Vector3 position, Vector3 target)
+    {
+        Vector3 toTargetVec = target - position;
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (calculateEuclidianDistance(robot.transform.position, target.transform.position) < endDistance)
-            {
-                timerOn = false;
-                trialFinished = true;
-                endTrialText.enabled = true;
-            }
+        float euclidDist = Mathf.Sqrt(Mathf.Pow(toTargetVec.x, 2) + Mathf.Pow(toTargetVec.z, 2));
 
-            if (timerOn)
-            {
-                timer += Time.deltaTime;
-                float minutes = Mathf.Floor(timer / 60);
-                float seconds = timer % 60;
-                string text = string.Format("{0:0}:{1:00}", minutes, seconds);
-                timerText.text = text;
-            }
-        }
+        return euclidDist;
+    }
 
-        private float calculateEuclidianDistance(Vector3 position, Vector3 target)
-        {
-            Vector3 toTargetVec = target - position;
-
-            float euclidDist = Mathf.Sqrt(Mathf.Pow(toTargetVec.x, 2) + Mathf.Pow(toTargetVec.z, 2));
-
-            return euclidDist;
-        }
-
-        private void OnDisable()
-        {
-            moveActionDC.RemoveOnChangeListener(OnConfirmActionChange, hand.handType);
-            moveActionIC.RemoveOnChangeListener(OnConfirmActionChange, hand.handType);
-        }
+    private void OnDisable()
+    {
+        moveActionDC.RemoveOnChangeListener(OnConfirmActionChange, hand.handType);
+        moveActionIC.RemoveOnChangeListener(OnConfirmActionChange, hand.handType);
     }
 }
