@@ -57,7 +57,10 @@ public class CollisionAvoidance : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        LogCollisions();
+        if (!status.tutorial)
+        {
+            LogCollisions();
+        }
     }
 
     private void LogCollisions()

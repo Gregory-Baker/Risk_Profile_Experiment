@@ -23,6 +23,19 @@ namespace Valve.VR.InteractionSystem
 
         public CollisionAvoidance collisionSensor;
 
+        public SpriteRenderer uparrow;
+        public SpriteRenderer downarrow;
+        public SpriteRenderer leftarrow;
+        public SpriteRenderer rightarrow;
+        public SpriteRenderer uprightarrow;
+        public SpriteRenderer upleftarrow;
+        public SpriteRenderer downrightarrow;
+        public SpriteRenderer downleftarrow;
+        public SpriteRenderer[] directionArrows;
+
+
+        [HideInInspector] public bool showHint;
+
         void OnEnable()
         {
             if (hand == null)
@@ -59,6 +72,11 @@ namespace Valve.VR.InteractionSystem
 
         void FixedUpdate()
         {
+            foreach (SpriteRenderer arrow in directionArrows)
+            {
+                arrow.enabled = false;
+            }
+
             if (IsActionButtonDown(hand, forwardAction))
             {
                 StartCoroutine(MoveRobotCoroutine(linearSpeed, status.communicationDelay));
@@ -66,11 +84,18 @@ namespace Valve.VR.InteractionSystem
                 if (IsActionButtonDown(hand, rightAction))
                 {
                     StartCoroutine(TurnRobotCoroutine(angularSpeed, status.communicationDelay));
+                    uprightarrow.enabled = true;
                 }
 
-                if (IsActionButtonDown(hand, leftAction))
+                else if (IsActionButtonDown(hand, leftAction))
                 {
                     StartCoroutine(TurnRobotCoroutine(-angularSpeed, status.communicationDelay));
+                    upleftarrow.enabled = true;
+                }
+
+                else
+                {
+                    uparrow.enabled = true;
                 }
             }
 
@@ -81,11 +106,18 @@ namespace Valve.VR.InteractionSystem
                 if (IsActionButtonDown(hand, rightAction))
                 {
                     StartCoroutine(TurnRobotCoroutine(-angularSpeed, status.communicationDelay));
+                    downrightarrow.enabled = true;
                 }
 
-                if (IsActionButtonDown(hand, leftAction))
+                else if (IsActionButtonDown(hand, leftAction))
                 {
                     StartCoroutine(TurnRobotCoroutine(angularSpeed, status.communicationDelay));
+                    downleftarrow.enabled = true;
+                }
+
+                else
+                {
+                    downarrow.enabled = true;
                 }
             }
 
@@ -94,15 +126,21 @@ namespace Valve.VR.InteractionSystem
                 if (IsActionButtonDown(hand, rightAction))
                 {
                     StartCoroutine(TurnRobotCoroutine(angularSpeed, status.communicationDelay));
+                    rightarrow.enabled = true;
                 }
 
                 if (IsActionButtonDown(hand, leftAction))
                 {
                     StartCoroutine(TurnRobotCoroutine(-angularSpeed, status.communicationDelay));
+                    leftarrow.enabled = true;
                 }
             }
 
-
+            if (showHint)
+            {
+                ShowHint();
+            }
+            
 
         }
 
@@ -127,6 +165,11 @@ namespace Valve.VR.InteractionSystem
         {
             yield return new WaitForSeconds(delayTime);
             transform.Rotate(transform.up * angularVelocity * Time.fixedDeltaTime);
+        }
+
+        public void ShowHint()
+        {
+            ControllerButtonHints.ShowTextHint(hand, forwardAction, "Move Robot");
         }
     }
 }

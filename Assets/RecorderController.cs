@@ -58,9 +58,9 @@ public class RecorderController : MonoBehaviour
                 playback.enabled = false;
             }
 
-            foreach (ObjectPlayback playback in playbackScripts)
+            foreach (ObjectRecorder recorder in recorderScripts)
             {
-                playback.enabled = true;
+                recorder.enabled = false;
             }
         }
 
