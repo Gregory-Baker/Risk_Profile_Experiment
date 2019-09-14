@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Valve.VR.InteractionSystem;
 using Valve.VR;
-
+using System;
 
 public class Timer : MonoBehaviour
 {
@@ -46,11 +46,12 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (calculateEuclidianDistance(robot.transform.position, target.transform.position) < endDistance)
+        if (CalculateEuclidianDistance(robot.transform.position, target.transform.position) < endDistance)
         {
             timerOn = false;
             trialFinished = true;
             endTrialText.enabled = true;
+            StartCoroutine(ExitTrial(0f));
         }
 
         if (timerOn)
@@ -63,7 +64,13 @@ public class Timer : MonoBehaviour
         }
     }
 
-    private float calculateEuclidianDistance(Vector3 position, Vector3 target)
+    IEnumerator ExitTrial(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    private float CalculateEuclidianDistance(Vector3 position, Vector3 target)
     {
         Vector3 toTargetVec = target - position;
 
@@ -77,4 +84,6 @@ public class Timer : MonoBehaviour
         moveActionDC.RemoveOnChangeListener(OnConfirmActionChange, hand.handType);
         moveActionIC.RemoveOnChangeListener(OnConfirmActionChange, hand.handType);
     }
+
+
 }

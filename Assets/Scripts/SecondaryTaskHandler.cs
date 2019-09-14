@@ -33,7 +33,7 @@ public class SecondaryTaskHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        folder = status.folderGlobalPath;
+        folder = status.folderLocalPath;
         string filename = status.trialName + "_ResponseTimes";
         string fileType = ".txt";
         string path = folder + "/" + filename + fileType;
@@ -130,9 +130,12 @@ public class SecondaryTaskHandler : MonoBehaviour
     private void ArrowDeactivate()
     {
         responseTime = Time.time - startTime;
-        using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFile, true))
+        if (!status.tutorial)
         {
-            file.WriteLine(responseTime);
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFile, true))
+            {
+                file.WriteLine(responseTime);
+            }
         }
 
         activeArrow.enabled = false;
@@ -148,19 +151,18 @@ public class SecondaryTaskHandler : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        LogErrors();
+        if (!status.tutorial)
+        {
+            LogErrors();
+        }
     }
 
     private void LogErrors()
     {
-        string logErrorFile = folder + "/" + status.trialName + "_ResponseErrors";
-        string fileType = ".txt";
-        string path = logErrorFile + fileType;
-        path = status.FindUniquePathName(logErrorFile, fileType);
-
+        string path = status.trialDataFile;
         using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
         {
-            file.WriteLine(errors);
+            file.WriteLine("Task Errors, " + errors);
         }
     }
 }

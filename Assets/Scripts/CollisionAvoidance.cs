@@ -62,14 +62,10 @@ public class CollisionAvoidance : MonoBehaviour
 
     private void LogCollisions()
     {
-        string logErrorFile = status.folderGlobalPath + "/" + status.trialName + "_CollisionAvoidanceTriggered";
-        string fileType = ".txt";
-        string path = logErrorFile + fileType;
-        path = status.FindUniquePathName(logErrorFile, fileType);
-
+        string path = status.trialDataFile;
         using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
         {
-            file.WriteLine(collisions);
+            file.WriteLine("Collisions, " + collisions);
         }
     }
 }

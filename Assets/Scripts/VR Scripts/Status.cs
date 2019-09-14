@@ -12,9 +12,10 @@ public class Status : MonoBehaviour
     public enum EnvironmentOrientation { A, B, C, D }
     public EnvironmentOrientation environment;
     public bool communicationDelayOn = false;
-    [HideInInspector] public float communicationDelay = 0f;
+    public float communicationDelay = 0f;
     public bool directControl;
     public bool changeControlPermitted;
+    public bool tutorial;
 
     [Header("Left/Right Handed")]
     public bool leftHanded = false;
@@ -24,8 +25,8 @@ public class Status : MonoBehaviour
     public GameObject leftHandModel;
 
     [HideInInspector] public string folderLocalPath;
-    [HideInInspector] public string folderGlobalPath;
     [HideInInspector] public string trialName;
+    [HideInInspector] public string trialDataFile;
 
     void Awake()
     {
@@ -34,11 +35,23 @@ public class Status : MonoBehaviour
         else
             communicationDelay = 0;
 
-        folderLocalPath = String.Format("Assets/ParticipantData/{0}", participantID);
-        var folder = Directory.CreateDirectory(folderLocalPath);
-        folderGlobalPath = Application.dataPath + "/" + "ParticipantData" + "/" + participantID;
-
         trialName = MakeTag();
+
+        folderLocalPath = FindUniqueDirectoryName(String.Format("Assets/ParticipantData/{0}/{1}", participantID, trialName));
+
+        if (!tutorial)
+        {
+            var folder = Directory.CreateDirectory(folderLocalPath);
+
+            trialDataFile = folderLocalPath + "/" + trialName + "_DataFile";
+            trialDataFile = FindUniquePathName(trialDataFile, ".txt");
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(trialDataFile, true))
+            {
+                string env = "Environment, " + environment;
+                file.WriteLine(env);
+            }
+        }
 
         if (leftHanded)
         {
@@ -67,14 +80,14 @@ public class Status : MonoBehaviour
             commDelayTag = "D";
         }
 
-        string tag = participantID + "_" + dcTag + commDelayTag + "_" + environment;
+        string tag = participantID + "_" + dcTag + commDelayTag;
 
         return tag;
     }
 
     public string FindUniquePathName(string pathNoExt, string fileType)
     {
-        string path = pathNoExt + fileType; ;
+        string path = pathNoExt + fileType;
         int counter = 1;
         if (File.Exists(path))
         {
@@ -88,5 +101,22 @@ public class Status : MonoBehaviour
         }
 
         return path;
+    }
+
+    public string FindUniqueDirectoryName(string path)
+    {
+        int counter = 1;
+        string pathNew = path;
+        if (Directory.Exists(path))
+        {
+            do
+            {
+                pathNew = path + "_" + counter;
+                counter += 1;
+
+            } while (Directory.Exists(pathNew));
+        }
+
+        return pathNew;
     }
 }

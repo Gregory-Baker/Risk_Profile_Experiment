@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class ChangeControlMethod : MonoBehaviour
 {
-    public Status robotStatus;
+    public Status status;
 
     public Hand hand;
     public SteamVR_Action_Boolean changeControlAction;
@@ -18,6 +18,8 @@ public class ChangeControlMethod : MonoBehaviour
     public GameObject teleportObject;
     public StopRobot stopRobot;
     public LineRenderer lineRenderer;
+    public MeshRenderer dcUiText;
+    public MeshRenderer icUiText;
 
     public DirectControl directControlScript;
 
@@ -47,16 +49,16 @@ public class ChangeControlMethod : MonoBehaviour
 
     private void OnConfirmActionChange(SteamVR_Action_Boolean changeControlAction, SteamVR_Input_Sources inputSource, bool newValue)
     {
-        if (newValue && robotStatus.changeControlPermitted)
+        if (newValue && status.changeControlPermitted)
         {
-            robotStatus.directControl = !robotStatus.directControl;
+            status.directControl = !status.directControl;
             SwitchControl();
         }
     }
 
     public void SwitchControl()
     {
-        if (robotStatus.directControl)
+        if (status.directControl)
         {
             print("Direct Control Activated");
             dcActionSet.Activate(forSources, 1, false);
@@ -69,6 +71,11 @@ public class ChangeControlMethod : MonoBehaviour
             foreach (GameObject targetDisk in teleportTargetDisks)
             {
                 targetDisk.SetActive(false);
+            }
+            if (status.changeControlPermitted)
+            {
+                icUiText.enabled = false;
+                dcUiText.enabled = true;
             }
         }
         else
@@ -85,6 +92,11 @@ public class ChangeControlMethod : MonoBehaviour
             {
                 targetDisk.SetActive(true);
                 targetDisk.transform.position = transform.position;
+            }
+            if (status.changeControlPermitted)
+            {
+                icUiText.enabled = true;
+                dcUiText.enabled = false;
             }
         }
     }

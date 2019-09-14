@@ -19,33 +19,49 @@ public class RecorderController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (record)
+        if (!status.tutorial)
         {
-            foreach (ObjectRecorder recorder in recorderScripts)
+            if (record)
             {
-                recorder.enabled = true;
+                foreach (ObjectRecorder recorder in recorderScripts)
+                {
+                    recorder.enabled = true;
+                }
+
+                foreach (ObjectPlayback playback in playbackScripts)
+                {
+                    playback.enabled = false;
+                }
             }
 
-            foreach (ObjectPlayback playback in playbackScripts)
+            else if (playback)
             {
-                playback.enabled = false;
+                status.directControl = true;
+
+                foreach (ObjectRecorder recorder in recorderScripts)
+                {
+                    recorder.enabled = false;
+                }
+
+                foreach (ObjectPlayback playback in playbackScripts)
+                {
+                    playback.enabled = true;
+                }
+                playbackCamera.SetActive(true);
             }
         }
 
-        else if (playback)
+        else
         {
-            status.directControl = true;
-
-            foreach (ObjectRecorder recorder in recorderScripts)
+            foreach (ObjectPlayback playback in playbackScripts)
             {
-                recorder.enabled = false;
+                playback.enabled = false;
             }
 
             foreach (ObjectPlayback playback in playbackScripts)
             {
                 playback.enabled = true;
             }
-            playbackCamera.SetActive(true);
         }
 
         if (!status.changeControlPermitted && status.directControl)

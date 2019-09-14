@@ -19,8 +19,7 @@ namespace Valve.VR.InteractionSystem
         public float linearSpeed = 0.5f;
         public float angularSpeed = 1f;
 
-        public Status robotStatus;
-        public float communicationDelay;
+        public Status status;
 
         public CollisionAvoidance collisionSensor;
 
@@ -37,7 +36,7 @@ namespace Valve.VR.InteractionSystem
 
             collisionSensor.enabled = true;
 
-            communicationDelay = robotStatus.communicationDelay;
+            //communicationDelay = status.communicationDelay;
         }
 
         private void OnDisable()
@@ -62,34 +61,31 @@ namespace Valve.VR.InteractionSystem
         {
             if (IsActionButtonDown(hand, forwardAction))
             {
-                if (!collisionSensor.inCollision)
-                {
-                    StartCoroutine(MoveRobotCoroutine(linearSpeed, communicationDelay));
-                }
+                StartCoroutine(MoveRobotCoroutine(linearSpeed, status.communicationDelay));
 
                 if (IsActionButtonDown(hand, rightAction))
                 {
-                    StartCoroutine(TurnRobotCoroutine(angularSpeed, communicationDelay));
+                    StartCoroutine(TurnRobotCoroutine(angularSpeed, status.communicationDelay));
                 }
 
                 if (IsActionButtonDown(hand, leftAction))
                 {
-                    StartCoroutine(TurnRobotCoroutine(-angularSpeed, communicationDelay));
+                    StartCoroutine(TurnRobotCoroutine(-angularSpeed, status.communicationDelay));
                 }
             }
 
             else if (IsActionButtonDown(hand, reverseAction))
             {
-                StartCoroutine(MoveRobotCoroutine(-linearSpeed, communicationDelay));
+                StartCoroutine(MoveRobotCoroutine(-linearSpeed, status.communicationDelay));
 
                 if (IsActionButtonDown(hand, rightAction))
                 {
-                    StartCoroutine(TurnRobotCoroutine(-angularSpeed, communicationDelay));
+                    StartCoroutine(TurnRobotCoroutine(-angularSpeed, status.communicationDelay));
                 }
 
                 if (IsActionButtonDown(hand, leftAction))
                 {
-                    StartCoroutine(TurnRobotCoroutine(angularSpeed, communicationDelay));
+                    StartCoroutine(TurnRobotCoroutine(angularSpeed, status.communicationDelay));
                 }
             }
 
@@ -97,12 +93,12 @@ namespace Valve.VR.InteractionSystem
             {
                 if (IsActionButtonDown(hand, rightAction))
                 {
-                    StartCoroutine(TurnRobotCoroutine(angularSpeed, communicationDelay));
+                    StartCoroutine(TurnRobotCoroutine(angularSpeed, status.communicationDelay));
                 }
 
                 if (IsActionButtonDown(hand, leftAction))
                 {
-                    StartCoroutine(TurnRobotCoroutine(-angularSpeed, communicationDelay));
+                    StartCoroutine(TurnRobotCoroutine(-angularSpeed, status.communicationDelay));
                 }
             }
 
@@ -113,7 +109,18 @@ namespace Valve.VR.InteractionSystem
         IEnumerator MoveRobotCoroutine(float linearVelocity, float delayTime)
         {
             yield return new WaitForSeconds(delayTime);
-            transform.Translate(Vector3.forward * linearVelocity * Time.fixedDeltaTime);
+            if (linearVelocity > 0)
+            {
+                if (!collisionSensor.inCollision)
+                {
+                    transform.Translate(Vector3.forward * linearVelocity * Time.fixedDeltaTime);
+                }
+            }
+            else
+            {
+                transform.Translate(Vector3.forward * linearVelocity * Time.fixedDeltaTime);
+            }
+
         }
 
         IEnumerator TurnRobotCoroutine(float angularVelocity, float delayTime)

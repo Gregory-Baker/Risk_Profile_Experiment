@@ -155,10 +155,10 @@ namespace RecordAndRepeat
             }
 
             string path = DestinationFolder;
-            if (!AssetDatabase.IsValidFolder(path))
-            {
-                AssetDatabase.CreateFolder("Assets", recordingsPath);
-            }
+            //if (!AssetDatabase.IsValidFolder(path))
+            //{
+            //    AssetDatabase.CreateFolder("Assets", recordingsPath);
+            //}
 
             recordingName = recordingName.Trim() == "" ? DefaultRecordingName : recordingName;
             string assetPathAndName = AssetDatabase.GenerateUniqueAssetPath(path + "/" + recordingName + ".asset");
