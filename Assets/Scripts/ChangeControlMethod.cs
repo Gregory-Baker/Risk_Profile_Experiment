@@ -25,9 +25,10 @@ public class ChangeControlMethod : MonoBehaviour
 
     public SteamVR_ActionSet dcActionSet;
     public SteamVR_ActionSet icActionSet;
-    public SteamVR_Input_Sources forSources = SteamVR_Input_Sources.Any;
+    SteamVR_Input_Sources forSources = SteamVR_Input_Sources.Any;
 
     public GameObject[] teleportTargetDisks;
+    public GameObject robot;
 
     private void OnEnable()
     {
@@ -91,7 +92,7 @@ public class ChangeControlMethod : MonoBehaviour
             foreach (GameObject targetDisk in teleportTargetDisks)
             {
                 targetDisk.SetActive(true);
-                targetDisk.transform.position = transform.position;
+                targetDisk.transform.position = robot.transform.position;
             }
             if (status.changeControlPermitted)
             {

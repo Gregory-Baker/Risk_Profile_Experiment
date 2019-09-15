@@ -41,7 +41,10 @@ public class SecondaryTaskHandler : MonoBehaviour
 
         logFile = status.FindUniquePathName(folder + "/" + filename, fileType);
 
+    }
 
+    private void OnEnable()
+    {
         AssignVRInputActions();
     }
 

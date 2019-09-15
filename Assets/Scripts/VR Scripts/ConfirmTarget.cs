@@ -16,8 +16,7 @@ namespace Valve.VR.InteractionSystem
         public GameObject objectToMove;
         public GameObject objectToTrack;
 
-        public Status robotStatus;
-        public float communicationDelay;
+        public Status status;
 
         public float verticalOffset = 0f;
 
@@ -33,8 +32,6 @@ namespace Valve.VR.InteractionSystem
             }
 
             confirmTargetAction.AddOnChangeListener(OnConfirmActionChange, hand.handType);
-
-            communicationDelay = robotStatus.communicationDelay;
         }
 
         private void OnDisable()
@@ -49,7 +46,7 @@ namespace Valve.VR.InteractionSystem
         {
             if (newValue)
             {
-                StartCoroutine(MoveTargetCoroutine(communicationDelay));
+                StartCoroutine(MoveTargetCoroutine(status.communicationDelay));
             }
         }
 
@@ -58,7 +55,7 @@ namespace Valve.VR.InteractionSystem
             Vector3 targetPosition = objectToTrack.transform.position;
             targetPosition.y += verticalOffset;
             MoveTarget(objectToMove, targetPosition);
-            yield return new WaitForSeconds(communicationDelay);
+            yield return new WaitForSeconds(delay);
             MoveTarget(targetObject, targetPosition);
         }
 

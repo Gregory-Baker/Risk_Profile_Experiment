@@ -15,8 +15,6 @@ namespace Valve.VR.InteractionSystem
 
         public float verticalOffset = 0f;
 
-        float communicationDelay;
-
         private void OnEnable()
         {
             if (hand == null)
@@ -29,8 +27,6 @@ namespace Valve.VR.InteractionSystem
             }
 
             confirmTargetAction.AddOnChangeListener(OnConfirmActionChange, hand.handType);
-
-            communicationDelay = status.communicationDelay;
         }
 
         private void OnDisable()
@@ -43,7 +39,7 @@ namespace Valve.VR.InteractionSystem
         {
             if (newValue)
             {
-                StartCoroutine(MoveTargetCoroutine(communicationDelay));
+                StartCoroutine(MoveTargetCoroutine(status.communicationDelay));
             }
         }
 

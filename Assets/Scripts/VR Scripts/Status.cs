@@ -119,4 +119,12 @@ public class Status : MonoBehaviour
 
         return pathNew;
     }
+
+    private void Update()
+    {
+        if (communicationDelayOn)
+            communicationDelay = 1f;
+        else
+            communicationDelay = 0;
+    }
 }

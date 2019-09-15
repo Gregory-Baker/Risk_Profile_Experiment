@@ -53,6 +53,14 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/NextTutorial",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/RepeatTutorial",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -105,7 +113,7 @@
   "action_sets": [
     {
       "name": "/actions/default",
-      "usage": "single"
+      "usage": "leftright"
     },
     {
       "name": "/actions/platformer",
@@ -178,7 +186,9 @@
       "/actions/DirectControl/in/MoveForward": "Move Forward",
       "/actions/DirectControl/in/MoveBackward": "Move Backwards",
       "/actions/DirectControl/in/TurnLeft": "Turn Left",
-      "/actions/DirectControl/in/TurnRight": "Turn Right"
+      "/actions/DirectControl/in/TurnRight": "Turn Right",
+      "/actions/default/in/NextTutorial": "Next tutorial",
+      "/actions/default/in/RepeatTutorial": "Repeat Tutorial"
     }
   ]
 }
