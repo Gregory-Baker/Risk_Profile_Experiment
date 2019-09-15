@@ -28,6 +28,7 @@ public class SecondaryTaskHandler : MonoBehaviour
     public Status status;
     string folder;
     string logFile;
+    public bool startSecondaryTask = false;
 
 
     // Start is called before the first frame update
@@ -47,10 +48,11 @@ public class SecondaryTaskHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!secondaryTaskActive && timer.timerOn)
+        if ((!secondaryTaskActive && timer.timerOn) || startSecondaryTask)
         {
             secondaryTaskActive = true;
             StartCoroutine(ArrowActivation(timeDelay));
+            startSecondaryTask = false;
         }
     }
 
