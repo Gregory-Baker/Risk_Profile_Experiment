@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
 {
     public bool timerOn = false;
     public bool trialFinished = false;
-    [SerializeField] float timer = 0f;
+    public float timer = 0f;
     TextMesh timerText;
     public float endDistance = 1f;
     public GameObject robot;

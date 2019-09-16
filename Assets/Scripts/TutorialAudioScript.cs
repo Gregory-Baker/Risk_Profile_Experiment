@@ -34,6 +34,8 @@ public class TutorialAudioScript : MonoBehaviour
 
     public SecondaryTaskHandler secondaryTask;
 
+    public MeshRenderer videoScreen;
+
     private int counter = -1;
     private bool startedTutorial = false;
 
@@ -68,6 +70,7 @@ public class TutorialAudioScript : MonoBehaviour
         else
         {
             audioClips = icAudioClips;
+            videoScreen.enabled = true;
         }
         StartCoroutine(PlayTutorialHint(leftHand, nextTutorialAction, "Play Tutorial", true, 5f));
     }

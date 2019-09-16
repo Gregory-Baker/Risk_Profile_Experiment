@@ -14,12 +14,13 @@ public class ChangeControlMethod : MonoBehaviour
 
     public NavMeshAgent navMeshAgent;
     public SampleAgentScript sampleAgentScript;
-    //public Teleport teleportScript;
     public GameObject teleportObject;
     public StopRobot stopRobot;
     public LineRenderer lineRenderer;
     public MeshRenderer dcUiText;
     public MeshRenderer icUiText;
+
+    public Timer timer;
 
     public DirectControl directControlScript;
 
@@ -29,6 +30,8 @@ public class ChangeControlMethod : MonoBehaviour
 
     public GameObject[] teleportTargetDisks;
     public GameObject robot;
+
+    private string logFile;
 
     private void OnEnable()
     {
@@ -41,10 +44,20 @@ public class ChangeControlMethod : MonoBehaviour
             return;
         }
 
+        if (navMeshAgent == null)
+        {
+            navMeshAgent = robot.GetComponent<NavMeshAgent>();
+            sampleAgentScript = robot.GetComponent<SampleAgentScript>();
+        }
+
         changeControlAction.AddOnChangeListener(OnConfirmActionChange, hand.handType);
 
         SwitchControl();
 
+        string folder = status.folderLocalPath;
+        string filename = status.trialName + "_";
+        string fileType = ".txt";
+        logFile = folder + "/" + filename + fileType;
     }
 
 
@@ -54,6 +67,23 @@ public class ChangeControlMethod : MonoBehaviour
         {
             status.directControl = !status.directControl;
             SwitchControl();
+            if (timer.timerOn && !status.tutorial)
+            {
+                if (status.directControl)
+                {
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFile, true))
+                    {
+                        file.WriteLine("DC, " + timer.timer);
+                    }
+                }
+                else
+                {
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFile, true))
+                    {
+                        file.WriteLine("IC, " + timer.timer);
+                    }
+                }
+            }
         }
     }
 

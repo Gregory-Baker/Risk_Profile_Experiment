@@ -59,6 +59,7 @@ public class CollisionAvoidance : MonoBehaviour
     {
         if (!status.tutorial)
         {
+            print("writing to file");
             LogCollisions();
         }
     }

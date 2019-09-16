@@ -66,7 +66,15 @@ public class Status : MonoBehaviour
         string dcTag;
         string commDelayTag = "";
 
-        if (directControl)
+        if (tutorial)
+        {
+            dcTag = "Tutorial";
+        }
+        else if (changeControlPermitted)
+        {
+            dcTag = "Bonus";
+        }
+        else if (directControl)
         {
             dcTag = "DC";
         }
