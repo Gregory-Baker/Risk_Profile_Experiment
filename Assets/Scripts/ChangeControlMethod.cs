@@ -21,6 +21,7 @@ public class ChangeControlMethod : MonoBehaviour
     public MeshRenderer icUiText;
 
     public Timer timer;
+    bool trialStarted = false;
 
     public DirectControl directControlScript;
 
@@ -53,11 +54,6 @@ public class ChangeControlMethod : MonoBehaviour
         changeControlAction.AddOnChangeListener(OnConfirmActionChange, hand.handType);
 
         SwitchControl();
-
-        string folder = status.folderLocalPath;
-        string filename = status.trialName + "_";
-        string fileType = ".txt";
-        logFile = folder + "/" + filename + fileType;
     }
 
 
@@ -69,6 +65,7 @@ public class ChangeControlMethod : MonoBehaviour
             SwitchControl();
             if (timer.timerOn && !status.tutorial)
             {
+
                 if (status.directControl)
                 {
                     using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFile, true))
@@ -129,6 +126,33 @@ public class ChangeControlMethod : MonoBehaviour
                 icUiText.enabled = true;
                 dcUiText.enabled = false;
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (status.changeControlPermitted && !trialStarted && timer.timerOn)
+        {
+            string folder = status.folderLocalPath;
+            string filename = status.trialName + "_ControlChanges";
+            string fileType = ".txt";
+            logFile = folder + "/" + filename + fileType;
+
+            if (status.directControl)
+            {
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFile, true))
+                {
+                    file.WriteLine("DC, " + timer.timer);
+                }
+            }
+            else
+            {
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFile, true))
+                {
+                    file.WriteLine("IC, " + timer.timer);
+                }
+            }
+            trialStarted = true;
         }
     }
 }

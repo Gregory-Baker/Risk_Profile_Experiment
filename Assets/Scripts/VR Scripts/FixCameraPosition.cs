@@ -17,7 +17,7 @@ public class FixCameraPosition : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Vector3 camPos = robot.transform.position + Vector3.up*verticalHeight - vrCamera.transform.position;
         transform.Translate(camPos, Space.World);

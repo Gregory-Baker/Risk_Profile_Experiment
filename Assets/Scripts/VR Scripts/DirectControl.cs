@@ -70,7 +70,7 @@ namespace Valve.VR.InteractionSystem
             return action.GetState(hand.handType);
         }
 
-        void FixedUpdate()
+        void Update()
         {
             foreach (SpriteRenderer arrow in directionArrows)
             {
@@ -151,12 +151,12 @@ namespace Valve.VR.InteractionSystem
             {
                 if (!collisionSensor.inCollision)
                 {
-                    transform.Translate(Vector3.forward * linearVelocity * Time.fixedDeltaTime);
+                    transform.Translate(Vector3.forward * linearVelocity * Time.deltaTime);
                 }
             }
             else
             {
-                transform.Translate(Vector3.forward * linearVelocity * Time.fixedDeltaTime);
+                transform.Translate(Vector3.forward * linearVelocity * Time.deltaTime);
             }
 
         }
@@ -164,7 +164,7 @@ namespace Valve.VR.InteractionSystem
         IEnumerator TurnRobotCoroutine(float angularVelocity, float delayTime)
         {
             yield return new WaitForSeconds(delayTime);
-            transform.Rotate(transform.up * angularVelocity * Time.fixedDeltaTime);
+            transform.Rotate(transform.up * angularVelocity * Time.deltaTime);
         }
 
         public void ShowHint()
