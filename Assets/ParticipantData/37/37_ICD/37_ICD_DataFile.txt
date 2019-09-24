@@ -1,0 +1,6 @@
+Environment, B
+Turn Time, 0
+Trial Time, 228.1132
+Distance Travelled, 128.4353
+Task Errors, 0
+Collisions, 0

@@ -17299,15 +17299,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: participantID
-      value: 36
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: communicationDelayOn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: environment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: leftHanded
@@ -27849,7 +27849,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967822089}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: -1}
   m_Children:
