@@ -110,6 +110,10 @@ public class ChangeControlMethod : MonoBehaviour
         {
             print("Indirect Control Activated");
             dcActionSet.Deactivate(forSources);
+            foreach (SpriteRenderer arrow in directControlScript.directionArrows)
+            {
+                arrow.enabled = false;
+            }
             directControlScript.enabled = false;
             navMeshAgent.enabled = true;
             sampleAgentScript.enabled = true;
@@ -131,28 +135,31 @@ public class ChangeControlMethod : MonoBehaviour
 
     private void Update()
     {
-        if (status.changeControlPermitted && !trialStarted && timer.timerOn)
+        if (!status.tutorial)
         {
-            string folder = status.folderLocalPath;
-            string filename = status.trialName + "_ControlChanges";
-            string fileType = ".txt";
-            logFile = folder + "/" + filename + fileType;
+            if (status.changeControlPermitted && !trialStarted && timer.timerOn)
+            {
+                string folder = status.folderLocalPath;
+                string filename = status.trialName + "_ControlChanges";
+                string fileType = ".txt";
+                logFile = folder + "/" + filename + fileType;
 
-            if (status.directControl)
-            {
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFile, true))
+                if (status.directControl)
                 {
-                    file.WriteLine("DC, " + timer.timer);
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFile, true))
+                    {
+                        file.WriteLine("DC, " + timer.timer);
+                    }
                 }
-            }
-            else
-            {
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFile, true))
+                else
                 {
-                    file.WriteLine("IC, " + timer.timer);
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFile, true))
+                    {
+                        file.WriteLine("IC, " + timer.timer);
+                    }
                 }
+                trialStarted = true;
             }
-            trialStarted = true;
         }
     }
 }

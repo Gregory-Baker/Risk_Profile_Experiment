@@ -33,6 +33,8 @@ namespace Valve.VR.InteractionSystem
         public SpriteRenderer downleftarrow;
         public SpriteRenderer[] directionArrows;
 
+        public float turnTime;
+
 
         [HideInInspector] public bool showHint;
 
@@ -125,14 +127,16 @@ namespace Valve.VR.InteractionSystem
             {
                 if (IsActionButtonDown(hand, rightAction))
                 {
-                    StartCoroutine(TurnRobotCoroutine(angularSpeed, status.communicationDelay));
+                    StartCoroutine(TurnRobotCoroutine(1.5f * angularSpeed, status.communicationDelay));
                     rightarrow.enabled = true;
+                    turnTime += Time.deltaTime;
                 }
 
                 if (IsActionButtonDown(hand, leftAction))
                 {
-                    StartCoroutine(TurnRobotCoroutine(-angularSpeed, status.communicationDelay));
+                    StartCoroutine(TurnRobotCoroutine(-1.5f * angularSpeed, status.communicationDelay));
                     leftarrow.enabled = true;
+                    turnTime += Time.deltaTime;
                 }
             }
 
@@ -170,6 +174,23 @@ namespace Valve.VR.InteractionSystem
         public void ShowHint()
         {
             ControllerButtonHints.ShowTextHint(hand, forwardAction, "Move Robot");
+        }
+
+        private void OnApplicationQuit()
+        {
+            if (!status.tutorial)
+            {
+                LogTurnTime();
+            }
+        }
+
+        private void LogTurnTime()
+        {
+            string path = status.trialDataFile;
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
+            {
+                file.WriteLine("Turn Time, " + turnTime);
+            }
         }
     }
 }

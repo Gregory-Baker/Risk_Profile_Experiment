@@ -488,6 +488,7 @@ MonoBehaviour:
   objectName: Target
   timer: {fileID: 2070628680}
   status: {fileID: 931580737}
+  collisionAvoidance: {fileID: 1960858151}
 --- !u!114 &17412051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8594,7 +8595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &662478640
 Transform:
   m_ObjectHideFlags: 0
@@ -8616,7 +8617,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662478639}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 0
   m_Extents: {x: 0.4, y: 1, z: 0.4}
@@ -12366,7 +12367,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1320637367}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1794377005}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbcd2c46f23d89948bdeeed95d5032f0, type: 3}
@@ -12458,6 +12459,30 @@ PrefabInstance:
     - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: showHint
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: teleportSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: pointerStartSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: pointerLoopSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: pointerStopSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: goodHighlightSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: badHighlightSound
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
@@ -12796,6 +12821,7 @@ MonoBehaviour:
   objectName: VRCam
   timer: {fileID: 2070628680}
   status: {fileID: 931580737}
+  collisionAvoidance: {fileID: 1960858151}
 --- !u!114 &964142368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17259,6 +17285,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: tutorial
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: changeControlPermitted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: directControl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: participantID
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: communicationDelayOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: environment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: leftHanded
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 55
@@ -17303,80 +17357,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 13533284, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 13533284, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11465950, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6727629121169294488, guid: dc06161b6d97feb419f45f03b62e14b9,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Hello
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 429506, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2014920, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2014920, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: m_TargetDisplay
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2014920, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: m_TargetEye
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010474703086, guid: dc06161b6d97feb419f45f03b62e14b9,
-        type: 3}
-      propertyPath: actionSet.actionSetPath
-      value: /actions/default
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010474703086, guid: dc06161b6d97feb419f45f03b62e14b9,
-        type: 3}
-      propertyPath: disableAllOtherActionSets
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 485560989022365678, guid: dc06161b6d97feb419f45f03b62e14b9,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 931580734, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: robot
       value: 
       objectReference: {fileID: 1960858136}
-    - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: tutorial
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: changeControlPermitted
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: directControl
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: participantID
-      value: Test_Manuel
-      objectReference: {fileID: 0}
-    - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: communicationDelayOn
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 931580738, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: teleportTargetDisks.Array.size
       value: 3
@@ -17437,14 +17421,6 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 2070628680}
-    - target: {fileID: 1529687820, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1529687824, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1529687822, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: robot
       value: 
@@ -17453,6 +17429,69 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1879687927}
+    - target: {fileID: 359027450104744535, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: timeDelay
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014920, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014920, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_TargetDisplay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014920, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_TargetEye
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465950, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429506, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13533284, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13533284, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010474703086, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: actionSet.actionSetPath
+      value: /actions/default
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010474703086, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: disableAllOtherActionSets
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529687820, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529687824, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727629121169294488, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Hello
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 485560989022365678, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -22923,6 +22962,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4707581494a4031438fbad227829f0db, type: 3}
+--- !u!114 &1665526473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 359027450104744535, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1320637367}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf469b364108a64c86c51358871e5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1666295064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23578,6 +23629,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 364230181}
     m_Modifications:
+    - target: {fileID: 1924217154915476, guid: aff47d0fca1e53244a323dbd82ddc90a, type: 3}
+      propertyPath: m_Name
+      value: barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924217154915476, guid: aff47d0fca1e53244a323dbd82ddc90a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4898458119993624, guid: aff47d0fca1e53244a323dbd82ddc90a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52.76
@@ -23633,14 +23692,6 @@ PrefabInstance:
     - target: {fileID: 4898458119993624, guid: aff47d0fca1e53244a323dbd82ddc90a, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1924217154915476, guid: aff47d0fca1e53244a323dbd82ddc90a, type: 3}
-      propertyPath: m_Name
-      value: barrel
-      objectReference: {fileID: 0}
-    - target: {fileID: 1924217154915476, guid: aff47d0fca1e53244a323dbd82ddc90a, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aff47d0fca1e53244a323dbd82ddc90a, type: 3}
@@ -23828,7 +23879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1708712826
 Transform:
   m_ObjectHideFlags: 0
@@ -23850,7 +23901,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708712825}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 0
   m_Extents: {x: 0.4, y: 1, z: 0.4}
@@ -25302,6 +25353,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1785647876}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1794377005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1320637367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1794377006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794377005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98938ac22b266b74f87af420d019a446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status: {fileID: 931580737}
+  collisionAvoidance: {fileID: 1960858151}
+  timer: {fileID: 2070628680}
+  tracker: {fileID: 1794377008}
+  secondaryTaskHandler: {fileID: 1665526473}
+--- !u!114 &1794377008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 931580734, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1320637367}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794377005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7434fbf946b1dce48a51f7ef527e580e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1794569811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30294,6 +30380,7 @@ MonoBehaviour:
   objectName: Robot
   timer: {fileID: 2070628680}
   status: {fileID: 931580737}
+  collisionAvoidance: {fileID: 1960858151}
 --- !u!114 &903200284923289213
 MonoBehaviour:
   m_ObjectHideFlags: 0

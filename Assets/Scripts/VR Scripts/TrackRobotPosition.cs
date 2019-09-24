@@ -22,7 +22,7 @@ public class TrackRobotPosition : MonoBehaviour
 
     Vector3 playerTranslation;
 
-    [SerializeField] float distanceTravelled = 0f;
+    public float distanceTravelled = 0f;
 
     float currentPlayerAngle;
     float currentRobotAngle;

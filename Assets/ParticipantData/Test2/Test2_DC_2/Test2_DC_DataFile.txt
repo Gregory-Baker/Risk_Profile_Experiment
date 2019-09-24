@@ -1,0 +1,4 @@
+Environment, A
+Task Errors, 0
+Turn Time, 5.854021
+Collisions, 0

@@ -1,3 +1,0 @@
-Environment, C
-Collisions, 95
-Task Errors, 0

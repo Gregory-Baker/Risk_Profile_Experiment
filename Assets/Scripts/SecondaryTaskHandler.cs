@@ -153,21 +153,4 @@ public class SecondaryTaskHandler : MonoBehaviour
         a_leftArrow.RemoveOnChangeListener(OnLeftArrowActionChange, hand.handType);
         a_rightArrow.RemoveOnChangeListener(OnRightArrowActionChange, hand.handType);
     }
-
-    private void OnApplicationQuit()
-    {
-        if (!status.tutorial)
-        {
-            LogErrors();
-        }
-    }
-
-    private void LogErrors()
-    {
-        string path = status.trialDataFile;
-        using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
-        {
-            file.WriteLine("Task Errors, " + errors);
-        }
-    }
 }

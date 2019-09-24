@@ -1,0 +1,3 @@
+Environment, B
+Task Errors, 2
+Collisions, 18

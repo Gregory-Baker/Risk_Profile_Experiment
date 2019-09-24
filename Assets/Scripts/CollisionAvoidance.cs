@@ -54,21 +54,4 @@ public class CollisionAvoidance : MonoBehaviour
             }
         }
     }
-
-    private void OnApplicationQuit()
-    {
-        if (!status.tutorial)
-        {
-            LogCollisions();
-        }
-    }
-
-    private void LogCollisions()
-    {
-        string path = status.trialDataFile;
-        using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
-        {
-            file.WriteLine("Collisions, " + collisions);
-        }
-    }
 }

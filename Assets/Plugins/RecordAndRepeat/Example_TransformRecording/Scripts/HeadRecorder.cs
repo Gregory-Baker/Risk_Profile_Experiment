@@ -26,6 +26,7 @@ using UnityEngine;
 
 namespace RecordAndRepeat.Examples
 {
+
     [RequireComponent(typeof(Recorder))]
     [ExecuteInEditMode]
     public class HeadRecorder : MonoBehaviour
@@ -54,7 +55,7 @@ namespace RecordAndRepeat.Examples
                 return;
             }
 
-            HeadData headData = new HeadData(headTransform);
+            HeadData headData = new HeadData(headTransform, false);
             recorder.RecordAsJson(headData);
         }
     }

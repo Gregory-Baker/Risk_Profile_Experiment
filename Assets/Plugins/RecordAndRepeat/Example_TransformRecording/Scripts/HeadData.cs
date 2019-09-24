@@ -30,13 +30,15 @@ namespace RecordAndRepeat.Examples
         public Vector3 worldPos;
         public Vector3 forward;
         public bool dc = false;
+        public bool inCol = false;
 
         public HeadData() { }
-        public HeadData(Transform t, bool dcOn = false)
+        public HeadData(Transform t, bool inCollision, bool dcOn = false)
         {
             worldPos = t.position;
             forward = t.forward;
             dc = dcOn;
+            inCol = inCollision;
         }
 
         public void DebugDraw(float radius, float rayLength)

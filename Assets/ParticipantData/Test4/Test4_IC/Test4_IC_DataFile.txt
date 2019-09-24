@@ -1,3 +1,0 @@
-Environment, B
-Collisions, 0
-Task Errors, 2

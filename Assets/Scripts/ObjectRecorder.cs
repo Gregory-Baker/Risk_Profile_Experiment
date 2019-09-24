@@ -39,6 +39,7 @@ public class ObjectRecorder : MonoBehaviour
     bool recordingSaved = false;
     public Timer timer;
     public Status status;
+    public CollisionAvoidance collisionAvoidance;
     
     void Awake()
     {
@@ -65,7 +66,7 @@ public class ObjectRecorder : MonoBehaviour
             return;
         }
 
-        HeadData headData = new HeadData(objectTransform, status.directControl);
+        HeadData headData = new HeadData(objectTransform, collisionAvoidance.inCollision, status.directControl);
         recorder.RecordAsJson(headData);
 
         if (timer.trialFinished & !recordingSaved)

@@ -39,6 +39,8 @@ public class TutorialAudioScript : MonoBehaviour
     private int counter = -1;
     private bool startedTutorial = false;
 
+    public Transform target;
+
     private void OnEnable()
     {
         if (leftHand == null)
@@ -81,7 +83,14 @@ public class TutorialAudioScript : MonoBehaviour
     {
         if (newValue)
         {
-            counter += 1;
+            if (counter < 4)
+            {
+                counter += 1;
+            }
+            ControllerButtonHints.HideAllButtonHints(leftHand);
+            ControllerButtonHints.HideAllButtonHints(rightHand);
+            ControllerButtonHints.HideAllTextHints(leftHand);
+            ControllerButtonHints.HideAllTextHints(rightHand);
             StopAllCoroutines();
             PlayAudio(counter);
             HighlightButton(ref counter);
@@ -124,6 +133,10 @@ public class TutorialAudioScript : MonoBehaviour
         }
         else if (counter == 3)
         {
+            if (secondaryTask.activeArrow != null)
+            {
+                secondaryTask.activeArrow.enabled = false;
+            }
             ControllerButtonHints.HideTextHint(leftHand, secondaryTaskAction);
             secondaryTask.startSecondaryTask = false;
             secondaryTask.enabled = false;
@@ -151,11 +164,17 @@ public class TutorialAudioScript : MonoBehaviour
         else if (counter == 3)
         {   
             ControllerButtonHints.HideTextHint(leftHand, nextTutorialAction);
+            ShowTarget();
         }
         else if (counter == 4)
         {
             ControllerButtonHints.HideTextHint(leftHand, repeatTutorialAction);
         }
+    }
+
+    private void ShowTarget()
+    {
+        target.position = new Vector3(35f, 0.05f, 0f);
     }
 
     private void PlayAudio(int counter)
