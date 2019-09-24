@@ -15631,11 +15631,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: directControl
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: participantID
-      value: 35
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 931580735, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: leftHanded
