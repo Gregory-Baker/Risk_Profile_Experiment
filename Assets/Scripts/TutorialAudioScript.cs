@@ -41,6 +41,8 @@ public class TutorialAudioScript : MonoBehaviour
 
     public Transform target;
 
+    public int picInt = 0;
+
     private void OnEnable()
     {
         if (leftHand == null)
@@ -83,6 +85,12 @@ public class TutorialAudioScript : MonoBehaviour
     {
         if (newValue)
         {
+            string folderName = "C:/Users/g8-baker/Documents/Greg's Documents/PhD/VR Teleop Mobile Robot/";
+            string picName = "waypoint_control_8_" + picInt + ".jpg";
+            string filename = folderName + picName;
+            ScreenCapture.CaptureScreenshot(filename);
+            picInt += 1;
+
             if (counter < 4)
             {
                 counter += 1;

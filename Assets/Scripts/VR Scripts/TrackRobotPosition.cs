@@ -29,6 +29,11 @@ public class TrackRobotPosition : MonoBehaviour
     float previousRobotAngle;
     float headRotationAngle;
 
+    float distanceTravelledThisFrame;
+    float angleTurnedThisFrame;
+
+    public float turnTime = 0f;
+
     Timer timer;
 
     // Start is called before the first frame update
@@ -54,6 +59,11 @@ public class TrackRobotPosition : MonoBehaviour
             if (trackRotation)
             {
                 TurnPlayerWithRobot();
+            }
+
+            if (distanceTravelledThisFrame < 0.004 && angleTurnedThisFrame > 0.08)
+            {
+                turnTime += Time.deltaTime;
             }
         }
         else
@@ -86,6 +96,7 @@ public class TrackRobotPosition : MonoBehaviour
         }
         transform.Translate(heading, Space.World);
         distanceTravelled += heading.magnitude;
+        distanceTravelledThisFrame = heading.magnitude;
     }
 
     private void TurnPlayerWithRobot()
@@ -109,6 +120,8 @@ public class TrackRobotPosition : MonoBehaviour
         {
             headRotationAngle = Mathf.Sign(angleDiff) * maxTurnAnglePerSecond * Time.deltaTime;
         }
+
+        angleTurnedThisFrame = Mathf.Abs(headRotationAngle);
 
         transform.Rotate(transform.up, headRotationAngle);
 

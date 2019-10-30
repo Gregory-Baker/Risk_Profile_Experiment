@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05af61335a8d24a17b94b0a202d3aa46, type: 3}
+  m_Name: Participant_5_Bonus_VRCam
+  m_EditorClassIdentifier: 
+  duration: 0.9895425
+  frames:
+  - time: 0.000011444092
+    data: '{"worldPos":{"x":55.150001525878909,"y":1.25,"z":-2.205373306196634e-7},"forward":{"x":-0.34852102398872378,"y":0.9348718523979187,"z":-0.06744030117988587},"dc":false,"inCol":false}'
+  - time: 0.9895425
+    data: '{"worldPos":{"x":55.150001525878909,"y":1.25,"z":-2.205371316676974e-7},"forward":{"x":-0.3484781086444855,"y":0.9349194765090942,"z":-0.06699982285499573},"dc":false,"inCol":false}'

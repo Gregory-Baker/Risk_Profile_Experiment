@@ -47,8 +47,8 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
-    m_Asset: {fileID: -2458839388160785307}
-    m_Duration: 60.30564498901367
+    m_Asset: {fileID: 6919203513924662720}
+    m_Duration: 166.58364868164062
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5125078049851056166}
     m_EaseInDuration: 0
@@ -112,47 +112,9 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: '...'
+    m_DisplayName: 5_Bonus_Robot
   m_Markers:
     m_Objects: []
---- !u!114 &-4454619053856744709
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39cd434a3e3184adf9bb31348ce468b5, type: 3}
-  m_Name: Recording Track (1)
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_AnimClip: {fileID: 0}
-  m_Locked: 0
-  m_Muted: 0
-  m_CustomPlayableFullTypename: 
-  m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
-  m_Children: []
-  m_Clips: []
-  m_Markers:
-    m_Objects: []
---- !u!114 &-2458839388160785307
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef456091969024375aef2552952b31d9, type: 3}
-  m_Name: RecordingClip
-  m_EditorClassIdentifier: 
-  template:
-    recording: {fileID: 0}
-    watchReference: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,9 +130,23 @@ MonoBehaviour:
   m_Version: 0
   m_Tracks:
   - {fileID: -5125078049851056166}
-  - {fileID: -4454619053856744709}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
   m_DurationMode: 0
   m_MarkerTrack: {fileID: -6794674753284367070}
+--- !u!114 &6919203513924662720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef456091969024375aef2552952b31d9, type: 3}
+  m_Name: RecordingClip
+  m_EditorClassIdentifier: 
+  template:
+    recording: {fileID: 11400000, guid: ee14854a91177994588b508f1ecae566, type: 2}
+    watchReference: {fileID: 11400000, guid: ee14854a91177994588b508f1ecae566, type: 2}

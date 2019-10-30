@@ -1,0 +1,238 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05af61335a8d24a17b94b0a202d3aa46, type: 3}
+  m_Name: Participant_5_Bonus_Target
+  m_EditorClassIdentifier: 
+  duration: 3.2788305
+  frames:
+  - time: 0.000016212463
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.042925835
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.08102703
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.105116844
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.13012028
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.15609169
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.18163204
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.20718098
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.25722122
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.28139877
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.30439472
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.32977772
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.35408974
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.3804741
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.418046
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.44363308
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.4692526
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.49434566
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.5226879
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.55286884
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.58944035
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.6216259
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.6546602
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.6804371
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.7023592
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.72589874
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.7587223
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.78185844
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.8047762
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.8281441
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.86042976
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.8832474
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.9141178
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.9358454
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.97045517
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 0.9916277
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.0159998
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.0384779
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.0735397
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.096158
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.126318
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.1505852
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.1732893
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.197938
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.2379513
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.2610941
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.2934866
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.3272648
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.3610725
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.404768
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.4309273
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.4635363
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.4963427
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.5305996
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.5713806
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.5965614
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.6310148
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.6664696
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.708765
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.7454033
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.7698574
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.7979021
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.8312225
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.8664923
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.9059896
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.9330807
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.9678211
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 1.9893589
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.0146132
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.0400782
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.075511
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.0996895
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.1234426
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.1489773
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.1726217
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.1991405
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.2473736
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.272542
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.2998028
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.3321104
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.355568
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.396698
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.4185715
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.439352
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.462945
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.4842644
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.5065842
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.5433369
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.5687733
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.5893517
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.6126356
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.6369095
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.6685514
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.70895
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.735856
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.7701788
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.802369
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.8382444
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.8805876
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.903451
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.9366646
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 2.9708786
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 3.0046177
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 3.0472689
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 3.0724144
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 3.1041107
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 3.1379442
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 3.171999
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 3.2173357
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 3.250023
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'
+  - time: 3.2788305
+    data: '{"worldPos":{"x":55.0,"y":0.10999999940395355,"z":0.0},"forward":{"x":0.0,"y":0.0,"z":1.0},"dc":false,"inCol":false}'

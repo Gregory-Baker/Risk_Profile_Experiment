@@ -10,6 +10,7 @@ public class DataLogger : MonoBehaviour
     public Timer timer;
     public TrackRobotPosition tracker;
     public SecondaryTaskHandler secondaryTaskHandler;
+    public DirectControl directControl;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,8 @@ public class DataLogger : MonoBehaviour
             string path = status.trialDataFile;
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
             {
+                //file.WriteLine("Turn Time, " + tracker.turnTime);
+                file.WriteLine("Turn Time, " + directControl.turnTime);
                 file.WriteLine("Trial Time, " + timer.timer);
                 file.WriteLine("Distance Travelled, " + tracker.distanceTravelled);
                 file.WriteLine("Task Errors, " + secondaryTaskHandler.errors);

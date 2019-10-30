@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05af61335a8d24a17b94b0a202d3aa46, type: 3}
+  m_Name: Participant_5_Bonus_Robot
+  m_EditorClassIdentifier: 
+  duration: 1.017
+  frames:
+  - time: 0.000022172928
+    data: '{"worldPos":{"x":55.0,"y":0.0,"z":-7.546257934384855e-23},"forward":{"x":-1.0000001192092896,"y":0.0,"z":-1.1920928955078126e-7},"dc":false,"inCol":false}'
+  - time: 0.028057814
+    data: '{"worldPos":{"x":55.0,"y":0.0,"z":-7.546257934384855e-23},"forward":{"x":-1.0000001192092896,"y":0.0,"z":-1.1920928955078126e-7},"dc":false,"inCol":false}'
+  - time: 1.017
+    data: '{"worldPos":{"x":55.0,"y":0.0,"z":-5.0436772394924e-22},"forward":{"x":-1.0000001192092896,"y":0.0,"z":-1.1920928955078126e-7},"dc":false,"inCol":false}'

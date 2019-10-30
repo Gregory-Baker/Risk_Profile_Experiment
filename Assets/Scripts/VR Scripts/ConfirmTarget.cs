@@ -46,6 +46,12 @@ namespace Valve.VR.InteractionSystem
         {
             if (newValue)
             {
+                string folderName = "C:/Users/g8-baker/Documents/Greg's Documents/PhD/VR Teleop Mobile Robot/";
+                string picName = "waypoint_control_8.jpg";
+                string filename = folderName + picName;
+                ScreenCapture.CaptureScreenshot(filename);
+
+
                 StartCoroutine(MoveTargetCoroutine(status.communicationDelay));
             }
         }

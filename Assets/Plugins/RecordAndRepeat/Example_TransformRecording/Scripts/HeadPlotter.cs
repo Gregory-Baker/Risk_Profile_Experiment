@@ -28,13 +28,15 @@ namespace RecordAndRepeat.Examples
 {
     public class HeadPlotter : MonoBehaviour
     {
+        public Color colorDc = Color.green;
+        public Color colorIc = Color.blue;
+        public Color colorCol = Color.red;
 
         [System.Serializable]
         public class ColoredRecording
         {
             public Recording recording = null;
-            public Color colorDc = Color.red;
-            public Color colorIc = Color.blue;
+            public bool flip = false;
         }
 
         public List<ColoredRecording> recordings = new List<ColoredRecording>();
@@ -57,20 +59,32 @@ namespace RecordAndRepeat.Examples
                     continue;
                 }
 
+
                 //draw colored recording
                 HeadData lastHeadData = null;
                 foreach (DataFrame frame in recording.DataFrames)
                 {
 
                     HeadData headData = frame.ParseFromJson<HeadData>();
+                    if (coloredRec.flip)
+                    {
+                        headData.worldPos.z = -headData.worldPos.z;
+                    }
 
                     if (headData.dc)
                     {
-                        Gizmos.color = coloredRec.colorDc;
+                        if (headData.inCol)
+                        {
+                            Gizmos.color = colorCol;
+                        }
+                        else
+                        {
+                            Gizmos.color = colorDc;
+                        }
                     }
                     else
                     {
-                        Gizmos.color = coloredRec.colorIc;
+                        Gizmos.color = colorIc;
                     }
                     
                     headData.DebugDraw(radius, rayLength);
